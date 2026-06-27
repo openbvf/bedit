@@ -1,1 +1,1 @@
-
+journal,diary,encrypted,private,passphrase,writing,offline,encryption,e2ee,iCloud

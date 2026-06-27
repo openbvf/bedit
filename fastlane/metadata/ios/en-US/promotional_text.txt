@@ -1,1 +1,1 @@
-macOS Bedit needs to be configured with iCloud Drive support enabled before the iOS capp can be used to capture Bedit journal entries from iPhone or iPad. They're encrypted to a key only your Mac has. iOS can write, never read. No accounts, no telemetry.
+Capture journal entries from iPhone or iPad. Encrypted to a key only your Mac has. iOS can write, never read. No accounts, no telemetry.

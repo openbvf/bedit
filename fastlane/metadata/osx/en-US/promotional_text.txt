@@ -1,1 +1,1 @@
-Your journal, encrypted at rest. No accounts, no telemetry, no lock-in. Decrypted only inside the app, never in Spotlight, backups, or other software.
+Your journal, encrypted at rest. No accounts, no telemetry, no lock-in. Decrypted only inside the app, never in Spotlight, backups, or other software. Open-source.

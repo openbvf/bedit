@@ -5,4 +5,4 @@ iOS is write-only by design: the private key never leaves your Mac, so iPhone an
 NO ACCOUNT, NO TELEMETRY
 There is no account, no server, no backend. No analytics, no advertising identifier, no crash reporting. Bedit makes no network calls of its own.
 
-Open-source project in openbvf Github org. No lock-in: Everything's a file named by date, decryptable with brew-installable cli fallback (bvf-cli). See Github README (associated Developer website) for details.
+Open-source, no lock-in: every entry is a file named by date, decryptable from the command line with bvf-cli (Homebrew installable). Full docs and source on GitHub.

@@ -1,33 +1,8 @@
-Bedit is a private journal that encrypts every entry as you write and decrypts only inside the app where you read. There's never a readable copy of your words on disk. Not for Spotlight, not for backups, not for other software, not for anyone using your computer to look.
+Bedit is a private app to write and read your journal on macOS. Entries are encrypted as you write and decrypted only inside the app where you read, so there's never a readable copy on disk for Spotlight, backups, other software, or people using your computer to find.
 
-Read and write on macOS. Capture from iPhone, iPad, Siri, or Shortcuts. iOS is write-only by design: the private key never leaves your Mac, so iPhone and iPad can write new entries but can never read them. If your phone is taken, your words aren't on it.
-
-WHAT YOU GET
-• Write and read encrypted journal entries on macOS
-• Optionally enable iCloud Drive to capture from iPhone or iPad
-• Write via Siri or Shortcuts
-• Browse by date, filter by tag
-• Full-text search across entries
-• Import existing documents as encrypted entries
-• Export your selection
-• Idle auto-lock
-
-NO LOCK-IN
-Entries are ordinary files named by date. They're decryptable from the command line with bvf-cli (open source). Without Bedit, without an account, without anyone's permission. Your data goes with you.
-
-WHAT BEDIT PROTECTS YOU FROM
-• Anyone who steals your Mac, iPhone, or iPad
-• Someone logged into your Mac as you: passphrase required on launch, auto-lock on idle
-• Anyone who copies your encrypted files: they see blobs, never the words
-• AI agents, indexers, and other software that read files on your Mac
-• Apple or anyone who breaches iCloud, if you've opted into sync
-
-WHAT BEDIT DOES NOT PROTECT YOU FROM
-• Someone reading over your shoulder while Bedit is unlocked
-• A keylogger or tampered binary
-• A forgotten passphrase. There is no recovery. Entries are unrecoverable.
+iOS is write-only by design: the private key never leaves your Mac, so iPhone and iPad can write new entries but can never read them.
 
 NO ACCOUNT, NO TELEMETRY
 There is no account, no server, no backend. No analytics, no advertising identifier, no crash reporting. Bedit makes no network calls of its own.
 
-Requires macOS 15 (or iOS 18 for capture).
+Open-source project in openbvf Github org. No lock-in: Everything's a file named by date, decryptable with brew-installable cli fallback (bvf-cli). See Github README (associated Developer website) for details.

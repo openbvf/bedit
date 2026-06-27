@@ -30,7 +30,7 @@ platform :ios do
       xcodeproj: "Bedit.xcodeproj"
     )
     build_app(scheme: "Bedit-iOS", export_method: "app-store")
-    upload_to_testflight(api_key_path: ASC_KEY_PATH, skip_waiting_for_build_processing: true)
+    upload_to_testflight(api_key_path: ASC_KEY_PATH)
   end
 
   desc "Submit the latest TestFlight build to App Store review"
@@ -73,7 +73,7 @@ platform :mac do
       xcodeproj: "Bedit.xcodeproj"
     )
     build_app(scheme: "Bedit", export_method: "app-store")
-    upload_to_testflight(api_key_path: ASC_KEY_PATH, skip_waiting_for_build_processing: true)
+    upload_to_testflight(api_key_path: ASC_KEY_PATH)
   end
 
   desc "Submit the latest TestFlight build to App Store review"

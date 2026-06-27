@@ -1,0 +1,25 @@
+default_platform :ios
+
+platform :ios do
+  desc "Validate App Store metadata against Apple content rules"
+  lane :check do
+    precheck
+  end
+
+  desc "Build for App Store distribution"
+  lane :build do
+    build_app(scheme: "Bedit-iOS", export_method: "app-store")
+  end
+end
+
+platform :mac do
+  desc "Validate App Store metadata against Apple content rules"
+  lane :check do
+    precheck
+  end
+
+  desc "Build for App Store distribution"
+  lane :build do
+    build_app(scheme: "Bedit", export_method: "app-store")
+  end
+end

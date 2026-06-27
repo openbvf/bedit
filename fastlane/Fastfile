@@ -1,5 +1,11 @@
 default_platform :ios
 
+submission_info = {
+  add_id_info_uses_idfa: false,
+  content_rights_contains_third_party_content: false,
+  content_rights_has_rights: true
+}
+
 platform :ios do
   desc "Validate App Store metadata against Apple content rules"
   lane :check do
@@ -9,6 +15,31 @@ platform :ios do
   desc "Build for App Store distribution"
   lane :build do
     build_app(scheme: "Bedit-iOS", export_method: "app-store")
+  end
+
+  desc "Build and upload a new build to TestFlight"
+  lane :beta do
+    increment_build_number(
+      build_number: latest_testflight_build_number(version: "3.0", app_identifier: "io.bvf.bedit") + 1,
+      xcodeproj: "Bedit.xcodeproj"
+    )
+    build_app(scheme: "Bedit-iOS", export_method: "app-store")
+    upload_to_testflight(skip_waiting_for_build_processing: true)
+  end
+
+  desc "Submit the latest TestFlight build to App Store review"
+  lane :submit do
+    upload_to_app_store(
+      app_version: "3.0",
+      skip_binary_upload: true,
+      skip_metadata: true,
+      skip_screenshots: true,
+      submit_for_review: true,
+      automatic_release: true,
+      force: true,
+      precheck_include_in_app_purchases: false,
+      submission_information: submission_info
+    )
   end
 end
 
@@ -21,5 +52,30 @@ platform :mac do
   desc "Build for App Store distribution"
   lane :build do
     build_app(scheme: "Bedit", export_method: "app-store")
+  end
+
+  desc "Build and upload a new build to TestFlight"
+  lane :beta do
+    increment_build_number(
+      build_number: latest_testflight_build_number(version: "3.0", app_identifier: "io.bvf.bedit", platform: "osx") + 1,
+      xcodeproj: "Bedit.xcodeproj"
+    )
+    build_app(scheme: "Bedit", export_method: "app-store")
+    upload_to_testflight(skip_waiting_for_build_processing: true)
+  end
+
+  desc "Submit the latest TestFlight build to App Store review"
+  lane :submit do
+    upload_to_app_store(
+      app_version: "3.0",
+      skip_binary_upload: true,
+      skip_metadata: true,
+      skip_screenshots: true,
+      submit_for_review: true,
+      automatic_release: true,
+      force: true,
+      precheck_include_in_app_purchases: false,
+      submission_information: submission_info
+    )
   end
 end

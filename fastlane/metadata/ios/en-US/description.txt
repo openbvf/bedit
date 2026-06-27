@@ -1,4 +1,4 @@
-Bedit is a private journal that encrypts every entry as you write and decrypts only inside the app where you read. There's never a readable copy of your words on disk — not for Spotlight, not for backups, not for other software, not for anyone using your computer to look.
+Bedit is a private journal that encrypts every entry as you write and decrypts only inside the app where you read. There's never a readable copy of your words on disk. Not for Spotlight, not for backups, not for other software, not for anyone using your computer to look.
 
 Read and write on macOS. Capture from iPhone, iPad, Siri, or Shortcuts. iOS is write-only by design: the private key never leaves your Mac, so iPhone and iPad can write new entries but can never read them. If your phone is taken, your words aren't on it.
 
@@ -13,12 +13,12 @@ WHAT YOU GET
 • Idle auto-lock
 
 NO LOCK-IN
-Entries are ordinary files named by date. They're decryptable from the command line with bvf-cli (open source) — without Bedit, without an account, without anyone's permission. Your data goes with you.
+Entries are ordinary files named by date. They're decryptable from the command line with bvf-cli (open source). Without Bedit, without an account, without anyone's permission. Your data goes with you.
 
 WHAT BEDIT PROTECTS YOU FROM
 • Anyone who steals your Mac, iPhone, or iPad
-• Someone logged into your Mac as you — passphrase required on launch, auto-lock on idle
-• Anyone who copies your encrypted files — they see blobs, never the words
+• Someone logged into your Mac as you: passphrase required on launch, auto-lock on idle
+• Anyone who copies your encrypted files: they see blobs, never the words
 • AI agents, indexers, and other software that read files on your Mac
 • Apple or anyone who breaches iCloud, if you've opted into sync
 

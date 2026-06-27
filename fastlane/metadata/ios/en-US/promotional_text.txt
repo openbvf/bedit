@@ -1,1 +1,1 @@
-Capture journal entries from iPhone or iPad. They're encrypted to a key only your Mac has — iOS can write, never read. No accounts, no telemetry.
+Capture journal entries from iPhone or iPad. They're encrypted to a key only your Mac has. iOS can write, never read. No accounts, no telemetry.

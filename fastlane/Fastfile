@@ -33,13 +33,28 @@ platform :ios do
     upload_to_testflight(api_key_path: ASC_KEY_PATH)
   end
 
+  desc "Push App Store metadata text without submitting"
+  lane :push_metadata do
+    upload_to_app_store(
+      api_key_path: ASC_KEY_PATH,
+      app_version: "3.0",
+      metadata_path: "fastlane/metadata/ios",
+      skip_binary_upload: true,
+      skip_screenshots: true,
+      submit_for_review: false,
+      force: true,
+      precheck_include_in_app_purchases: false
+    )
+  end
+
   desc "Submit the latest TestFlight build to App Store review"
   lane :submit do
     upload_to_app_store(
       api_key_path: ASC_KEY_PATH,
       app_version: "3.0",
+      metadata_path: "fastlane/metadata/ios",
       skip_binary_upload: true,
-      skip_metadata: true,
+      skip_metadata: false,
       skip_screenshots: true,
       submit_for_review: true,
       automatic_release: true,
@@ -76,13 +91,30 @@ platform :mac do
     upload_to_testflight(api_key_path: ASC_KEY_PATH)
   end
 
+  desc "Push App Store metadata text without submitting"
+  lane :push_metadata do
+    upload_to_app_store(
+      api_key_path: ASC_KEY_PATH,
+      app_version: "3.0",
+      metadata_path: "fastlane/metadata/osx",
+      platform: "osx",
+      skip_binary_upload: true,
+      skip_screenshots: true,
+      submit_for_review: false,
+      force: true,
+      precheck_include_in_app_purchases: false
+    )
+  end
+
   desc "Submit the latest TestFlight build to App Store review"
   lane :submit do
     upload_to_app_store(
       api_key_path: ASC_KEY_PATH,
       app_version: "3.0",
+      metadata_path: "fastlane/metadata/osx",
+      platform: "osx",
       skip_binary_upload: true,
-      skip_metadata: true,
+      skip_metadata: false,
       skip_screenshots: true,
       submit_for_review: true,
       automatic_release: true,

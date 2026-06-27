@@ -39,6 +39,14 @@ Build for App Store distribution
 
 Build and upload a new build to TestFlight
 
+### ios push_metadata
+
+```sh
+[bundle exec] fastlane ios push_metadata
+```
+
+Push App Store metadata text without submitting
+
 ### ios submit
 
 ```sh
@@ -75,6 +83,14 @@ Build for App Store distribution
 ```
 
 Build and upload a new build to TestFlight
+
+### mac push_metadata
+
+```sh
+[bundle exec] fastlane mac push_metadata
+```
+
+Push App Store metadata text without submitting
 
 ### mac submit
 

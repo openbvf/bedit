@@ -17,6 +17,7 @@ DerivedData/
 *.xcarchive
 *.ipa
 *.pkg
+*.app
 *.dSYM.zip
 *.dSYM
 

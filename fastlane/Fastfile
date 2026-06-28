@@ -88,7 +88,7 @@ platform :mac do
       xcodeproj: "Bedit.xcodeproj"
     )
     build_app(scheme: "Bedit", export_method: "app-store")
-    upload_to_testflight(api_key_path: ASC_KEY_PATH)
+    upload_to_testflight(api_key_path: ASC_KEY_PATH, app_platform: "osx")
   end
 
   desc "Push App Store metadata text without submitting"

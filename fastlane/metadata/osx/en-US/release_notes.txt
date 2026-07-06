@@ -1,1 +1,1 @@
-First public release.
+Faster tag filter picker in Browse; count only in toolbar

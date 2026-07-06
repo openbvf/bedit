@@ -1,12 +1,12 @@
-<img src="bedit-macos.svg" alt="" width="128" align="right">
-
 # Bedit
+
+<img src="bedit-macos.svg" alt="" width="128" align="right">
 
 Bedit is a private app to write and read your journal on macOS. You can also write to it from iPhone, iPad, or Shortcuts. Entries are encrypted as you write and decrypted only inside the app where you read, so there's never a readable copy on disk for Spotlight, backups, other software, or people using your computer to find.
 
 iOS is write-only by design. An iPhone or iPad can write new entries but can never read them, because the private key isn't on iOS at all. If your phone is taken, your words aren't on it.
 
-*Screenshots are on the App Store listing (coming with release).*
+Screenshots are on the [App Store listing](https://apps.apple.com/us/app/bedit/id6755100266).
 
 ## Features
 
@@ -22,12 +22,14 @@ iOS is write-only by design. An iPhone or iPad can write new entries but can nev
 
 ## Install
 
-- **macOS**: App Store (in progress), or [build from source](BUILDING.md). Requires macOS 15 or later.
-- **iOS**: App Store (in progress). Requires iOS 18 or later.
+<a href="https://apps.apple.com/us/app/bedit/id6755100266?itsct=apps_box_badge&amp;itscg=30200"><img alt="Download on the App Store" src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?releaseDate=1751760000" height="50"></a>
+
+- **macOS**: Requires macOS 15 or later. Or [build from source](BUILDING.md).
+- **iOS**: Requires iOS 18 or later.
 
 ## First run
 
-You generate keys and choose a passphrase during onboarding. The passphrase is the only thing standing between someone who has your keys and your entry files. There is no recovery, no support desk, no "forgot password" link. Ideally it only exists in your head. Make it [secure](https://www.eff.org/dice).
+You generate keys and choose a passphrase during onboarding (or reuse existing ones from another bvf app). The passphrase is the only thing standing between someone who has your keys and your entry files. There is no recovery, no support desk, no "forgot password" link. Ideally it only exists in your head. Make it [secure](https://www.eff.org/dice).
 
 During onboarding, you can also choose to enable iCloud Drive so entries written on your iPhone or iPad land on your Mac. You can change this later in preferences, where you can also rerun the onboarding wizard at any time.
 
@@ -53,10 +55,7 @@ For the full threat model and cryptographic details, see [PRIVACY.md](PRIVACY.md
 - A forgotten passphrase. There is no recovery, and the entries are gone.
 - A memory attack on your running, unlocked Mac (see [SECURITY.md](SECURITY.md) for the nuances).
 - Fake entries from someone using your device. Anyone logged into your Mac, iPhone, or iPad can add an entry.
-
-## Backing up
-
-Your entries are encrypted files; back them up like any other files. An encrypted Time Machine backup doesn't increase exposure meaningfully since the entries are already encrypted, and Time Machine adds a second layer at rest. For remote backup, use a service that lets you supply an encryption key the provider can't access, so a breach of the service doesn't put your entries within reach of someone with your passphrase.
+- Yourself, via advanced settings. Moving the private key off your Mac (to iCloud, a shared folder, a backup service that holds its own decryption key) puts it within reach of whoever can read that location.
 
 ## License
 

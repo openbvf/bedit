@@ -16,6 +16,8 @@ build/
 DerivedData/
 *.xcarchive
 *.ipa
+*.pkg
+*.app
 *.dSYM.zip
 *.dSYM
 
@@ -37,6 +39,8 @@ fastlane/report.xml
 fastlane/Preview.html
 fastlane/screenshots/**/*.png
 fastlane/test_output
+fastlane/.env
+fastlane/metadata/**/review_information/
 
 # Editor
 .vscode/

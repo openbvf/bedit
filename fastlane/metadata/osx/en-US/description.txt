@@ -1,0 +1,7 @@
+Bedit is a private app to write and read your journal on macOS. Entries are encrypted as you write and decrypted only inside the app where you read, so there's never a readable copy on disk for Spotlight, backups, other software, or people using your computer to find.
+
+iOS is write-only by design: the private key never leaves your Mac, so iPhone and iPad can write new entries but can never read them.
+
+There is no account, no server, no backend. No analytics, no advertising identifier, no crash reporting. Bedit makes no network calls of its own.
+
+Open-source, no lock-in: every entry is a file named by date, decryptable from the command line with bvf-cli (Homebrew installable). Full docs and source on GitHub.

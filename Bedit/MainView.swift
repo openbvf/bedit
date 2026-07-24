@@ -43,7 +43,7 @@ struct MainView: View {
             }
         }
         .task {
-            if !fileAccessManager.isConfigured && !appSettings.hasSkippedOnboarding {
+            if !fileAccessManager.isConfigured && !appSettings.hasSkippedOnboarding && !fileAccessManager.needsKeyFolderMigration {
                 showOnboarding = true
             }
         }

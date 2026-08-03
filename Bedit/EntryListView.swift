@@ -156,12 +156,19 @@ private struct EntryRowView: View {
             selectedDates: viewModel.selectedDates,
             viewModel: viewModel
         )
-        .task(id: date) {
+        .task(id: "\(date.timeIntervalSince1970)-\(session.map { ObjectIdentifier($0).hashValue } ?? 0)") {
+            guard session != nil else {
+                // Locked (session cleared): drop decrypted plaintext held in view state.
+                text = ""
+                errorMessage = nil
+                return
+            }
             try? await Task.sleep(for: .milliseconds(BvfAppKitConfig.decryptionDebounceMs))
             guard !Task.isCancelled else { return }
 
             guard let session,
                   let url = viewModel.filesByDate[date] else { return }
+            errorMessage = nil
             do {
                 let data = try await Task.detached {
                     try await session.decrypt(contentsOf: url).data

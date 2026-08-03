@@ -16,7 +16,7 @@ platform :ios do
 
   desc "Build for App Store distribution"
   lane :build do
-    build_app(scheme: "Bedit-iOS", export_method: "app-store")
+    build_app(scheme: "Bedit-iOS", export_method: "app-store", xcargs: "-allowProvisioningUpdates")
   end
 
   desc "Build and upload a new build to TestFlight"
@@ -30,7 +30,7 @@ platform :ios do
       ) + 1,
       xcodeproj: "Bedit.xcodeproj"
     )
-    build_app(scheme: "Bedit-iOS", export_method: "app-store")
+    build_app(scheme: "Bedit-iOS", export_method: "app-store", xcargs: "-allowProvisioningUpdates")
     upload_to_testflight(api_key_path: ASC_KEY_PATH)
   end
 
@@ -76,22 +76,26 @@ platform :mac do
 
   desc "Build for App Store distribution"
   lane :build do
-    build_app(scheme: "Bedit", export_method: "app-store")
+    build_app(scheme: "Bedit", export_method: "app-store", xcargs: "-allowProvisioningUpdates")
   end
 
   desc "Build and upload a new build to TestFlight"
   lane :beta do
-    version = get_version_number(xcodeproj: "Bedit.xcodeproj", target: "Bedit")
+    # macOS requires the build number to increase monotonically across ALL
+    # version trains, so do NOT scope to the marketing version here (unlike iOS).
+    # The `7` floor covers a prior App Store build that has aged off TestFlight
+    # and is therefore invisible to latest_testflight_build_number; once uploads
+    # exceed it the TestFlight value dominates and the floor is moot.
+    latest = latest_testflight_build_number(
+      api_key_path: ASC_KEY_PATH,
+      app_identifier: "io.bvf.bedit",
+      platform: "osx"
+    )
     increment_build_number(
-      build_number: latest_testflight_build_number(
-        api_key_path: ASC_KEY_PATH,
-        version: version,
-        app_identifier: "io.bvf.bedit",
-        platform: "osx"
-      ) + 1,
+      build_number: [latest, 7].max + 1,
       xcodeproj: "Bedit.xcodeproj"
     )
-    build_app(scheme: "Bedit", export_method: "app-store")
+    build_app(scheme: "Bedit", export_method: "app-store", xcargs: "-allowProvisioningUpdates")
     upload_to_testflight(api_key_path: ASC_KEY_PATH, app_platform: "osx")
   end
 

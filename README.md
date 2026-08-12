@@ -57,6 +57,10 @@ For the full threat model and cryptographic details, see [PRIVACY.md](PRIVACY.md
 - Fake entries from someone using your device. Anyone logged into your Mac, iPhone, or iPad can add an entry.
 - Yourself, via advanced settings. Moving the private key off your Mac (to iCloud, a shared folder, a backup service that holds its own decryption key) puts it within reach of whoever can read that location.
 
+## Backing up
+
+Your entries are encrypted files; back them up like any other files. An encrypted Time Machine backup doesn't increase exposure meaningfully since the entries are already encrypted, and Time Machine adds a second layer at rest. For remote backup, use a service that lets you supply an encryption key the provider can't access, so a breach of the service doesn't put your entries within reach of someone with your passphrase.
+
 ## License
 
 MIT. See [LICENSE](LICENSE).
